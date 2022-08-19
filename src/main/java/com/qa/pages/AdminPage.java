@@ -8,18 +8,20 @@ import org.openqa.selenium.support.PageFactory;
 
 public class AdminPage extends TestBase {
 
-    @FindBy(xpath = "//div[@class='oxd-topbar-header-title']")
-    WebElement AdminLabel;
-
-    public AdminPage() { //initializing the page object
+    public AdminPage() {
         PageFactory.initElements(driver, this);
     }
 
+    @FindBy(xpath = "//div[@class='oxd-topbar-header-title']")
+    WebElement adminLabel;
+
     public boolean verifyAdminLabel() {
-        return AdminLabel.isDisplayed();
+        return adminLabel.isDisplayed();
     }
     public void selectAdminName(String name) {
-        driver.findElement(By.xpath("//div[contains(text(),'"+name+"')]//parent::div[@class='oxd-table-cell oxd-padding-cell']" +
-                "//preceding-sibling::div[@class='oxd-table-cell oxd-padding-cell']//div[@class='oxd-checkbox-wrapper']")).click();
+        driver.findElement(By.xpath("//div[contains(text(),'"+name+"')]" +
+                "//parent::div[@class='oxd-table-cell oxd-padding-cell']" +
+                "//preceding-sibling::div[@class='oxd-table-cell oxd-padding-cell']" +
+                "//div[@class='oxd-checkbox-wrapper']")).click();
     }
 }

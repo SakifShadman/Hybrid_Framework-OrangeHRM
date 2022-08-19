@@ -7,6 +7,11 @@ import org.openqa.selenium.support.PageFactory;
 
 public class LoginPage extends TestBase {
 
+    //Initializing the Page Objects:
+    public LoginPage() {
+        PageFactory.initElements(driver, this);
+    }
+
     //Page Factory - OR:
     @FindBy(name = "username")
     WebElement userName;
@@ -19,11 +24,6 @@ public class LoginPage extends TestBase {
 
     @FindBy(xpath = "//p[@class='oxd-text oxd-text--p orangehrm-login-forgot-header']")
     WebElement forgotPassword;
-
-    //Initializing the Page Objects:
-    public LoginPage() {
-        PageFactory.initElements(driver, this);
-    }
 
     //Actions:
     public String validateLoginPageTitle() {

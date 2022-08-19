@@ -4,7 +4,6 @@
         <classes>
             <class name = "com.qa.testcases.LoginPageTest" />
             <class name = "com.qa.testcases.HomePageTest" />
-            <class name = "com.qa.testcases.AdminPageTest" />
         </classes>
     </test>
 </suite>

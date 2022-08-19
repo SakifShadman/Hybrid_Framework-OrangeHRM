@@ -7,24 +7,24 @@ import org.openqa.selenium.support.PageFactory;
 
 public class HomePage extends TestBase {
 
+    public HomePage() {
+        PageFactory.initElements(driver, this);
+    }
+
     @FindBy(xpath = "//span[@class='oxd-userdropdown-tab']")
     WebElement userNameLabel;
 
-    @FindBy(xpath = "//input[@placeholder='Search']")
-    WebElement searchButton;
-
     @FindBy(xpath = "//span[normalize-space()='Admin']")
     WebElement admin;
+
+    @FindBy(xpath = "//a[@class='oxd-main-menu-item active']")
+    WebElement pmi;
 
     @FindBy(xpath = "//span[normalize-space()='My Info']")
     WebElement myInfo;
 
     @FindBy(xpath = "//span[normalize-space()='Directory']")
     WebElement directory;
-
-    public HomePage() {
-        PageFactory.initElements(driver, this);
-    }
 
     public String verifyHomePageTitle() {
         return driver.getTitle();
@@ -34,17 +34,22 @@ public class HomePage extends TestBase {
         return userNameLabel.isDisplayed();
     }
 
-    public AdminPage clickOnAdmin() {
+    public AdminPage clickOnAdminPage() {
         admin.click();
         return new AdminPage();
     }
 
-    public MyInfoPage clickOnMyInfo() {
+    public PMIPage clickOnPMIPage() {
+        pmi.click();
+        return new PMIPage();
+    }
+
+    public MyInfoPage clickOnMyInfoPage() {
         myInfo.click();
         return new MyInfoPage();
     }
 
-    public DirectoryPage clickOnDirection() {
+    public DirectoryPage clickOnDirectoryPage() {
         directory.click();
         return new DirectoryPage();
     }

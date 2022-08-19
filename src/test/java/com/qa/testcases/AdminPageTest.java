@@ -24,7 +24,7 @@ public class AdminPageTest extends TestBase {
         adminPage = new AdminPage();
         loginPage = new LoginPage();
         homePage = loginPage.login(prop.getProperty("user"), prop.getProperty("pass"));
-        adminPage = homePage.clickOnAdmin();
+        adminPage = homePage.clickOnAdminPage();
     }
 
     @Test(priority = 1)
