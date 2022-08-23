@@ -4,7 +4,9 @@ import com.qa.base.TestBase;
 import com.qa.pages.HomePage;
 import com.qa.pages.LoginPage;
 import com.qa.pages.PMIPage;
+import com.qa.util.TestUtil;
 import org.testng.Assert;
+import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
@@ -14,6 +16,8 @@ public class PMIPageTest extends TestBase {
     LoginPage loginPage;
     HomePage homePage;
     PMIPage pmiPage;
+
+    String sheetName = "New Employee";
 
     public PMIPageTest() {
         super();
@@ -39,13 +43,19 @@ public class PMIPageTest extends TestBase {
     }
 
     @DataProvider
-    public void getTestData() {
-
+    public Object[][] getOrangeHRMTestData() {
+        Object data[][] = TestUtil.getTestData(sheetName);
+        return data;
     }
 
-    @Test(priority = 3)
-    public void validateAddNewEmployeeTest() {
+    @Test(priority = 3, dataProvider = "getOrangeHRMTestData")
+    public void validateAddNewEmployeeTest(String firstName, String middleName, String lastName) {
         pmiPage.clickOnAddEmployee();
-        pmiPage.addNewEmployee("Sakif","Shadman","Arnob");
+        pmiPage.addNewEmployee(firstName, middleName, lastName);
+    }
+
+    @AfterMethod
+    public void tearDown() {
+        driver.quit();
     }
 }
