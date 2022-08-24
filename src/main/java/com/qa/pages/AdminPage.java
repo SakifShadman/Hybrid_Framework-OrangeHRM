@@ -18,6 +18,7 @@ public class AdminPage extends TestBase {
     public boolean verifyAdminLabel() {
         return adminLabel.isDisplayed();
     }
+
     public void selectAdminName(String name) {
         driver.findElement(By.xpath("//div[contains(text(),'"+name+"')]" +
                 "//parent::div[@class='oxd-table-cell oxd-padding-cell']" +
