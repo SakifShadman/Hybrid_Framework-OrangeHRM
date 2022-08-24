@@ -2,11 +2,14 @@ package com.qa.testcases;
 
 import com.qa.base.TestBase;
 import com.qa.pages.*;
+import com.qa.util.TestUtil;
 import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 
+@Listeners(TestUtil.class)
 public class HomePageTest extends TestBase {
     LoginPage loginPage;
     HomePage homePage;

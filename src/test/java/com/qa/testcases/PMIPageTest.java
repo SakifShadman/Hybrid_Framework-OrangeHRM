@@ -6,11 +6,10 @@ import com.qa.pages.LoginPage;
 import com.qa.pages.PMIPage;
 import com.qa.util.TestUtil;
 import org.testng.Assert;
-import org.testng.annotations.AfterMethod;
-import org.testng.annotations.BeforeMethod;
-import org.testng.annotations.DataProvider;
-import org.testng.annotations.Test;
+import org.testng.annotations.*;
 
+
+@Listeners(TestUtil.class)
 public class PMIPageTest extends TestBase {
 
     LoginPage loginPage;
@@ -38,7 +37,7 @@ public class PMIPageTest extends TestBase {
     }
 
     @Test(priority = 2)
-    public void clickAddEmployeeTest() {
+    public void clickAddEmployeeTest()  {
         pmiPage.clickOnAddEmployee();
     }
 
