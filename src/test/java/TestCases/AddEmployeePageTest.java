@@ -1,7 +1,7 @@
 package TestCases;
 
 import Pages.AddEmployeePage;
-import Util.TestUtil;
+import Screenshot.Util.TestUtil;
 import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 

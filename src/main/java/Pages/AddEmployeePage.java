@@ -1,7 +1,7 @@
 package Pages;
 
 import Browser.Browser;
-import Util.TestUtil;
+import Screenshot.Util.TestUtil;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;

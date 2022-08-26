@@ -21,6 +21,9 @@ public class PMIPage extends Browser {
     @FindBy(css = "button[type='submit']")
     WebElement searchButton;
 
+    @FindBy(css = "span[class='oxd-topbar-body-nav-tab-item']")
+    WebElement configurationDropDown;
+
     @FindBy(linkText = "Add Employee")
     WebElement addEmployeeLink;
 
@@ -44,6 +47,20 @@ public class PMIPage extends Browser {
         Assert.assertEquals(list.get(2).getText(), firstName, "First name not matched");
         Assert.assertEquals(list.get(3).getText(), lastName, "Last name not matched");
         return this;
+    }
+
+    public DataImportPage navigateToDataImportPage() {
+        configurationDropDown.click();
+
+        List<WebElement> list = driver.findElements(By.xpath("//ul[@class='oxd-dropdown-menu']//li"));
+
+        for (WebElement element : list) {
+            if (element.getText().equals("Data Import")) {
+                element.click();
+                break;
+            }
+        }
+        return PageFactory.initElements(driver, DataImportPage.class);
     }
 
     public AddEmployeePage clickOnAddEmployeePage() {

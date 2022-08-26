@@ -5,14 +5,13 @@ import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 
 @Listeners(TestUtil.class)
-public class AdminPageTest extends TestBase {
+public class DataImportPageTest extends TestBase{
 
     @Test
-    public void adminPageTest() {
+    public void validateDataImport() {
         startLoginPage()
                 .loginToPIMPage()
-                .clickOnAdminPage()
-                .verifyAdminLabel()
-                .selectAdminName("Aaliyah.Haq");
+                .navigateToDataImportPage()
+                .uploadFile();
     }
 }
