@@ -1,4 +1,4 @@
-package Screenshot.Util;
+package Util;
 
 import Browser.Browser;
 import org.apache.commons.io.FileUtils;

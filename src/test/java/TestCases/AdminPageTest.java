@@ -1,6 +1,6 @@
 package TestCases;
 
-import Screenshot.Util.TestUtil;
+import Util.TestUtil;
 import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 
