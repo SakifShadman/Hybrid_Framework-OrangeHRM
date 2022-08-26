@@ -2,8 +2,8 @@
 <suite name = "OrangeHRM Test Suite">
     <test name = "OrangeHRM Test Cases">
         <classes>
-            <class name = "com.qa.testcases.LoginPageTest" />
-            <class name = "com.qa.testcases.HomePageTest" />
+            <class name = "LoginPageTest" />
+            <class name = "HomePageTest" />
         </classes>
     </test>
 </suite>
