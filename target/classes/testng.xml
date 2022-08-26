@@ -2,9 +2,9 @@
 <suite name = "OrangeHRM Test Suite">
     <test name = "OrangeHRM Test Cases">
         <classes>
-            <class name = "com.qa.testcases.LoginPageTest" />
-            <class name = "com.qa.testcases.HomePageTest" />
-            <class name = "com.qa.testcases.AdminPageTest" />
+            <class name = "LoginPageTest" />
+            <class name = "HomePageTest" />
+            <class name = "AdminPageTest" />
         </classes>
     </test>
 </suite>
