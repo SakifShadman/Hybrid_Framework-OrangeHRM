@@ -51,10 +51,10 @@ public class TestUtil extends TestListenerAdapter {
 
 
     public void onTestFailure(ITestResult testResult) {
-        final String path = "src/main/java/Screenshot";
+        final String path = "src/main/java/Screenshot/";
 
         File screenshot = ((TakesScreenshot) Browser.driver).getScreenshotAs(OutputType.FILE);
-        File destFile = new File(path + testResult.getName() + ".png");
+        File destFile = new File(path + testResult.getName() + System.currentTimeMillis() + ".png");
 
         try {
             FileUtils.copyFile(screenshot, destFile);
