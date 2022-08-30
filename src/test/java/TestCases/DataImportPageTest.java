@@ -1,6 +1,6 @@
 package TestCases;
 
-import Screenshot.Util.TestUtil;
+import Util.TestUtil;
 import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 
@@ -10,7 +10,7 @@ public class DataImportPageTest extends TestBase{
     @Test
     public void validateDataImport() {
         startLoginPage()
-                .loginToPIMPage()
+                .navigateToPIMPage()
                 .navigateToDataImportPage()
                 .uploadFile();
     }

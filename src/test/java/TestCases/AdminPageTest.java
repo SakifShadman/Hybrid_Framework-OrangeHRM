@@ -1,6 +1,6 @@
 package TestCases;
 
-import Screenshot.Util.TestUtil;
+import Util.TestUtil;
 import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 
@@ -8,11 +8,19 @@ import org.testng.annotations.Test;
 public class AdminPageTest extends TestBase {
 
     @Test
-    public void adminPageTest() {
+    public void adminLabelTest() {
         startLoginPage()
-                .loginToPIMPage()
-                .clickOnAdminPage()
-                .verifyAdminLabel()
-                .selectAdminName("Aaliyah.Haq");
+                .navigateToPIMPage()
+                .navigateToAdminPage()
+                .verifyAdminLabel();
+    }
+
+    @Test
+    public void selectAdminNameTest() {
+        startLoginPage()
+                .navigateToPIMPage()
+                .navigateToAdminPage()
+                .selectAdminName("Aaliyah.Haq")
+                .selectAdminName("Anthony.Nolan");
     }
 }

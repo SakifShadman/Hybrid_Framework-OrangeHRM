@@ -1,4 +1,4 @@
-package Screenshot.Util;
+package Util;
 
 import Browser.Browser;
 import org.apache.commons.io.FileUtils;
@@ -19,24 +19,38 @@ import java.time.Duration;
 
 public class TestUtil extends TestListenerAdapter {
 
-    public static long PAGE_LOAD_TIMEOUT = 20;
-    public static long IMPLICIT_WAIT = 10;
-    public static int duration = 10;
-    public static String TestData_Sheet_Path = "src/main/java/TestData/OrangeHRMNewEmployeeData.xlsx";
+    public static final int PAGE_LOAD_TIMEOUT = 20;
+    public static final int IMPLICIT_WAIT = 10;
+    public static final int EXPLICIT_WAIT = 10;
+    public static final String TESTDATA_SHEET_PATH = "src/main/java/TestData/OrangeHRMNewEmployeeData.xlsx";
     static Workbook book;
     static Sheet sheet;
 
 
     public static WebElement explicitWait(WebElement locator) {
-        WebDriverWait wait = new WebDriverWait(Browser.driver, Duration.ofSeconds(duration));
+        WebDriverWait wait = new WebDriverWait(Browser.driver, Duration.ofSeconds(EXPLICIT_WAIT));
         return wait.until(ExpectedConditions.elementToBeClickable(locator));
+    }
+
+
+    public void onTestFailure(ITestResult testResult) {
+        final String path = "src/main/java/Screenshot/";
+
+        File screenshot = ((TakesScreenshot) Browser.driver).getScreenshotAs(OutputType.FILE);
+        File destFile = new File(path + testResult.getName() + System.currentTimeMillis() + ".png");
+
+        try {
+            FileUtils.copyFile(screenshot, destFile);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
     }
 
 
     public static Object[][] getTestData(String sheetName) {
         FileInputStream file = null;
         try {
-            file = new FileInputStream(TestData_Sheet_Path);
+            file = new FileInputStream(TESTDATA_SHEET_PATH);
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         }
@@ -55,19 +69,5 @@ public class TestUtil extends TestListenerAdapter {
             }
         }
         return data;
-    }
-
-
-    public void onTestFailure(ITestResult testResult) {
-        final String path = "src/main/java/Screenshot/";
-
-        File screenshot = ((TakesScreenshot) Browser.driver).getScreenshotAs(OutputType.FILE);
-        File destFile = new File(path + testResult.getName() + System.currentTimeMillis() + ".png");
-
-        try {
-            FileUtils.copyFile(screenshot, destFile);
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
     }
 }

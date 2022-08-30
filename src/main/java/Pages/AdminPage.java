@@ -7,21 +7,21 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.testng.Assert;
 
-public class AdminPage extends Browser {
+public class AdminPage {
     WebDriver driver = Browser.driver;
 
     @FindBy(xpath = "//div[@class='oxd-topbar-header-title']")
     WebElement adminLabel;
 
-    public AdminPage verifyAdminLabel() {
-         Assert.assertTrue(adminLabel.isDisplayed());
-         return this;
+    public void verifyAdminLabel() {
+         Assert.assertTrue(adminLabel.isDisplayed(), "Admin label is not displayed");
     }
 
-    public void selectAdminName(String name) {
+    public AdminPage selectAdminName(String name) {
         driver.findElement(By.xpath("//div[contains(text(),'"+name+"')]" +
                 "//parent::div[@class='oxd-table-cell oxd-padding-cell']" +
                 "//preceding-sibling::div[@class='oxd-table-cell oxd-padding-cell']" +
                 "//div[@class='oxd-checkbox-wrapper']")).click();
+        return this;
     }
 }

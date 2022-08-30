@@ -1,7 +1,7 @@
 package Pages;
 
 import Browser.Browser;
-import Screenshot.Util.TestUtil;
+import Util.TestUtil;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -21,11 +21,12 @@ public class AddEmployeePage {
     @FindBy(xpath = "//button[@type='submit']")
     WebElement saveButton;
 
-    public void addNewEmployee(String fName, String mName, String lName) {
+    public AddEmployeePage addNewEmployee(String fName, String mName, String lName) {
         firstName.sendKeys(fName);
         middleName.sendKeys(mName);
         lastName.sendKeys(lName);
         saveButton.click();
+        return this;
     }
 
     @DataProvider(name = "newEmployeeData")

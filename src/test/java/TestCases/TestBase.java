@@ -2,7 +2,7 @@ package TestCases;
 
 import Browser.Browser;
 import Pages.LoginPage;
-import Screenshot.Util.TestUtil;
+import Util.TestUtil;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;
 import org.testng.annotations.AfterMethod;
@@ -25,7 +25,7 @@ public class TestBase {
 
     @AfterMethod
     public void closeBrowser() {
-        driver.quit();
+        //driver.quit();
     }
 
     public LoginPage startLoginPage() {

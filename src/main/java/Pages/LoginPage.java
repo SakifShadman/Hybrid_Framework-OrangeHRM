@@ -19,17 +19,15 @@ public class LoginPage {
     @FindBy(xpath = "//button[@type='submit']")
     WebElement loginButton;
 
-    public LoginPage validateLoginPageTitle() {
-        Assert.assertEquals(driver.getTitle(), "OrangeHRM", "title is not matched");
-        return this;
+    public void validateLoginPageTitle() {
+        Assert.assertEquals(driver.getTitle(), "1OrangeHRM", "Title is not matched");
     }
 
-    public LoginPage validateLoginButton() {
-        Assert.assertTrue(loginButton.isDisplayed());
-        return this;
+    public void validateLoginButton() {
+        Assert.assertTrue(loginButton.isDisplayed(), "Login button is not displayed");
     }
 
-    public PMIPage loginToPIMPage() {
+    public PMIPage navigateToPIMPage() {
         userName.sendKeys(Browser.getPropertyValue("user"));
         passWord.sendKeys(Browser.getPropertyValue("pass"));
         loginButton.click();
