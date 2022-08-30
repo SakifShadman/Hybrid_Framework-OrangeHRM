@@ -11,7 +11,7 @@ import org.testng.Assert;
 
 import java.util.List;
 
-public class PMIPage extends Browser {
+public class PMIPage {
     WebDriver driver = Browser.driver;
 
     @FindBy(linkText = "Employee List")
@@ -30,23 +30,24 @@ public class PMIPage extends Browser {
     @FindBy(linkText = "Admin")
     WebElement adminLink;
 
-    public PMIPage verifyEmployeeList() {
+    public void verifyEmployeeList() {
         Assert.assertTrue(employeeListLabel.isDisplayed());
-        return this;
     }
 
     public PMIPage searchEmployeeId(String id) {
         List<WebElement> list = driver.findElements(By.cssSelector(".oxd-input.oxd-input--active"));
+
         list.get(1).sendKeys(id);
         searchButton.click();
+
         return this;
     }
 
-    public PMIPage validateFirstAndLastName(String firstName, String lastName) {
+    public void validateFirstAndLastName(String firstName, String lastName) {
         List<WebElement> list = driver.findElements(By.cssSelector(".oxd-table-cell.oxd-padding-cell"));
+
         Assert.assertEquals(list.get(2).getText(), firstName, "First name not matched");
         Assert.assertEquals(list.get(3).getText(), lastName, "Last name not matched");
-        return this;
     }
 
     public DataImportPage navigateToDataImportPage() {
@@ -63,12 +64,12 @@ public class PMIPage extends Browser {
         return PageFactory.initElements(driver, DataImportPage.class);
     }
 
-    public AddEmployeePage clickOnAddEmployeePage() {
+    public AddEmployeePage navigateToAddEmployeePage() {
         addEmployeeLink.click();
         return PageFactory.initElements(driver, AddEmployeePage.class);
     }
 
-    public AdminPage clickOnAdminPage() {
+    public AdminPage navigateToAdminPage() {
         adminLink.click();
         return PageFactory.initElements(driver, AdminPage.class);
     }

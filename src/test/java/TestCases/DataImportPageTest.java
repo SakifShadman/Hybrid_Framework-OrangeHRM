@@ -10,7 +10,7 @@ public class DataImportPageTest extends TestBase{
     @Test
     public void validateDataImport() {
         startLoginPage()
-                .loginToPIMPage()
+                .navigateToPIMPage()
                 .navigateToDataImportPage()
                 .uploadFile();
     }

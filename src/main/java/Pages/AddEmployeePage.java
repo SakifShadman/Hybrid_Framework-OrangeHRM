@@ -21,11 +21,12 @@ public class AddEmployeePage {
     @FindBy(xpath = "//button[@type='submit']")
     WebElement saveButton;
 
-    public void addNewEmployee(String fName, String mName, String lName) {
+    public AddEmployeePage addNewEmployee(String fName, String mName, String lName) {
         firstName.sendKeys(fName);
         middleName.sendKeys(mName);
         lastName.sendKeys(lName);
         saveButton.click();
+        return this;
     }
 
     @DataProvider(name = "newEmployeeData")

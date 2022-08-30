@@ -6,12 +6,18 @@ import org.testng.annotations.*;
 @Listeners(TestUtil.class)
 public class PMIPageTest extends TestBase {
 
-    @Test
+    @Test(priority = 1)
     public void employeeListTest() {
         startLoginPage()
-                .loginToPIMPage()
-                .verifyEmployeeList()
-                .searchEmployeeId("0221")
-                .validateFirstAndLastName("Alice", "Duval");
+                .navigateToPIMPage()
+                .verifyEmployeeList();
+    }
+
+    @Test(priority = 2)
+    public void employeeIdTest() {
+        startLoginPage()
+                .navigateToPIMPage()
+                .searchEmployeeId("0083")
+                .validateFirstAndLastName("Joe", "Root");
     }
 }
