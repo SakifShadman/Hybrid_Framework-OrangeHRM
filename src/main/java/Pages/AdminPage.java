@@ -14,7 +14,7 @@ public class AdminPage {
     WebElement adminLabel;
 
     public void verifyAdminLabel() {
-         Assert.assertTrue(adminLabel.isDisplayed(), "Admin label is not displayed");
+         Assert.assertTrue(adminLabel.isDisplayed(), "Admin label not displayed");
     }
 
     public AdminPage selectAdminName(String name) {
