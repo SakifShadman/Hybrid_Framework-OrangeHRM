@@ -9,6 +9,7 @@ import org.testng.annotations.DataProvider;
 
 public class AddEmployeePage {
     WebDriver driver = Browser.driver;
+
     @FindBy(name = "firstName")
     WebElement firstName;
 
