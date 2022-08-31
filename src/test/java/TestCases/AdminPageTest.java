@@ -7,7 +7,7 @@ import org.testng.annotations.Test;
 @Listeners(TestUtil.class)
 public class AdminPageTest extends TestBase {
 
-    @Test
+    @Test(priority = 1)
     public void adminLabelTest() {
         startLoginPage()
                 .navigateToPIMPage()
@@ -15,12 +15,12 @@ public class AdminPageTest extends TestBase {
                 .verifyAdminLabel();
     }
 
-    @Test
+    @Test(priority = 2)
     public void selectAdminNameTest() {
         startLoginPage()
                 .navigateToPIMPage()
                 .navigateToAdminPage()
-                .selectAdminName("Aaliyah.Haq")
-                .selectAdminName("Anthony.Nolan");
+                .selectAdminName("David.Morris")
+                .selectAdminName("Joe.Root");
     }
 }

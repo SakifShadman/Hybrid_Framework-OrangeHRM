@@ -30,6 +30,9 @@ public class PMIPage {
     @FindBy(linkText = "Admin")
     WebElement adminLink;
 
+    @FindBy(linkText = "Recruitment")
+    WebElement recruitmentLink;
+
     public void verifyEmployeeList() {
         Assert.assertTrue(employeeListLabel.isDisplayed());
     }
@@ -72,5 +75,10 @@ public class PMIPage {
     public AdminPage navigateToAdminPage() {
         adminLink.click();
         return PageFactory.initElements(driver, AdminPage.class);
+    }
+
+    public RecruitmentPage navigateToRecruitmentPage() {
+        recruitmentLink.click();
+        return PageFactory.initElements(driver, RecruitmentPage.class);
     }
 }
