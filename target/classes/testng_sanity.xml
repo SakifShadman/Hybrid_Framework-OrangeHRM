@@ -4,10 +4,6 @@
         <classes>
             <class name = "TestCases.LoginPageTest" />
             <class name = "TestCases.PMIPageTest" />
-            <class name = "TestCases.AddEmployeePageTest" />
-            <class name = "TestCases.DataImportPageTest" />
-            <class name = "TestCases.AdminPageTest" />
-            <class name = "TestCases.RecruitmentPageTest" />
         </classes>
     </test>
 </suite>

@@ -18,10 +18,10 @@ public class AdminPage {
     }
 
     public AdminPage selectAdminName(String name) {
-        driver.findElement(By.xpath("//div[contains(text(),'"+name+"')]" +
-                "//parent::div[@class='oxd-table-cell oxd-padding-cell']" +
-                "//preceding-sibling::div[@class='oxd-table-cell oxd-padding-cell']" +
-                "//div[@class='oxd-checkbox-wrapper']")).click();
+        WebElement element = driver.findElement(By.xpath("//div[contains(text(),'"+name+"')]//parent::div"
+                + "//preceding-sibling::div//div[@class='oxd-checkbox-wrapper']"));
+
+        element.click();
         return this;
     }
 }
