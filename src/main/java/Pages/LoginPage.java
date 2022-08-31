@@ -20,7 +20,7 @@ public class LoginPage {
     WebElement loginButton;
 
     public void validateLoginPageTitle() {
-        Assert.assertEquals(driver.getTitle(), "1OrangeHRM", "Title is not matched");
+        Assert.assertEquals(driver.getTitle(), "OrangeHRM", "Title is not matched");
     }
 
     public void validateLoginButton() {
