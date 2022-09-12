@@ -25,10 +25,10 @@ public class TestBase {
 
     @AfterMethod
     public void closeBrowser() {
-        driver.quit();
+        //driver.quit();
     }
 
     public LoginPage startLoginPage() {
-        return PageFactory.initElements(Browser.driver, LoginPage.class);
+        return PageFactory.initElements(driver, LoginPage.class);
     }
 }
