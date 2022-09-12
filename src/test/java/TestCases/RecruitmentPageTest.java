@@ -22,6 +22,6 @@ public class RecruitmentPageTest extends TestBase{
                 .navigateToPIMPage()
                 .navigateToRecruitmentPage()
                 .validateSearchByJobTitle("QA Lead")
-                .selectCandidateName("Joe");
+                .selectCandidateName("Joe Root");
     }
 }

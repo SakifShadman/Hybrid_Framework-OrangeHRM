@@ -13,7 +13,6 @@ import org.testng.TestListenerAdapter;
 
 import java.io.File;
 import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.time.Duration;
 
@@ -34,10 +33,10 @@ public class TestUtil extends TestListenerAdapter {
 
 
     public void onTestFailure(ITestResult testResult) {
-        final String path = "src/main/java/Screenshot/";
+        final String PATH = "src/main/java/Screenshot/";
 
         File screenshot = ((TakesScreenshot) Browser.driver).getScreenshotAs(OutputType.FILE);
-        File destFile = new File(path + testResult.getName() + System.currentTimeMillis() + ".png");
+        File destFile = new File(PATH + testResult.getName() + System.currentTimeMillis() + ".png");
 
         try {
             FileUtils.copyFile(screenshot, destFile);
@@ -49,23 +48,21 @@ public class TestUtil extends TestListenerAdapter {
 
     public static Object[][] getTestData(String sheetName) {
         FileInputStream file = null;
+
         try {
             file = new FileInputStream(TESTDATA_SHEET_PATH);
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        }
-        try {
             book = WorkbookFactory.create(file);
         } catch (IOException e) {
             e.printStackTrace();
         }
+
         sheet = book.getSheet(sheetName);
 
         Object[][] data = new Object[sheet.getLastRowNum()][sheet.getRow(0).getLastCellNum()];
 
         for (int i = 0; i < sheet.getLastRowNum(); i++) {
-            for (int k = 0; k < sheet.getRow(0).getLastCellNum(); k++) {
-                data[i][k] = sheet.getRow(i + 1).getCell(k).toString();
+            for (int j = 0; j < sheet.getRow(0).getLastCellNum(); j++) {
+                data[i][j] = sheet.getRow(i + 1).getCell(j).toString();
             }
         }
         return data;

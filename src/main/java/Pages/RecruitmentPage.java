@@ -51,10 +51,19 @@ public class RecruitmentPage {
     }
 
     public RecruitmentPage selectCandidateName(String name) {
-        WebElement element = driver.findElement(By.xpath("//div[contains(text(),'"+name+"')]//parent::div" +
-                "//preceding-sibling::div//div[@class='oxd-checkbox-wrapper']"));
+        List<WebElement> allRows = driver.findElements(By.xpath("//div[@class='oxd-table-card']"));
 
-        TestUtil.explicitWait(element).click();
+        for (WebElement row: allRows) {
+            //System.out.println(row.get);
+//            String cName = row.findElement(By.xpath("//div[3]")).getText();
+//            System.out.println("************" + cName);
+
+            if (row.getText().equalsIgnoreCase(name)) {
+                row.findElement(By.xpath("//div[@class='oxd-table-card']//div[1]//div")).click();
+            }
+        }
+
+        //TestUtil.explicitWait(element).click();
         return this;
     }
 }
